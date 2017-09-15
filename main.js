@@ -1,16 +1,23 @@
+
 ymaps.ready(init);
 
 var map;
 
 function init() {
-	map = new ymaps.Map('map', {
-		center: [59.94, 30.32],
+    map = new ymaps.Map('map', {
+        center: [59.94, 30.32],
         zoom: 12
-	});
+    });
 
-	placemark = new ymaps.Placemark([59.97, 30.31], {
+    placemark = new ymaps.Placemark([59.97, 30.31], {
+        hintContent: '<div class="map__hint">ул. Литераторов, д. 21</div>',
+        balloonContentBody: [
+            '<div class="map__balloon">',
+            '<img class="map__burger-img" src="img/burger.png" alt="Бургер"/>',
+            'Самые вкусные бургеры у нас! Заходите по адресу: ул. Литераторов, д. 21',
+            '</div>'
+        ].join('')
+    });
 
-	});
-
-	map.geoObjects.add(placemark);
+    map.geoObjects.add(placemark);
 }
